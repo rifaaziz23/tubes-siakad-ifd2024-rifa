@@ -1,0 +1,305 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg-primary: #0a0e1a;
+  --color-bg-secondary: #111827;
+  --color-bg-card: #1a2235;
+  --color-bg-hover: #1e2d45;
+  --color-accent: #6366f1;
+  --color-accent-light: #818cf8;
+  --color-accent-glow: rgba(99, 102, 241, 0.25);
+  --color-success-custom: #10b981;
+  --color-warning-custom: #f59e0b;
+  --color-danger-custom: #ef4444;
+  --color-text-primary: #f1f5f9;
+  --color-text-muted: #94a3b8;
+  --color-border-custom: rgba(255, 255, 255, 0.07);
+  --spacing-sidebar-w: 260px;
+  --font-sans: "Inter", sans-serif;
+}
+
+/* Base resets/defaults */
+body {
+  @apply font-sans bg-bg-primary text-text-primary min-h-screen flex;
+}
+
+/* Sidebar Components */
+.sidebar {
+  @apply w-sidebar-w bg-bg-secondary border-r border-border-custom flex flex-col fixed top-0 left-0 h-screen z-[100] transition-transform duration-300;
+}
+.sidebar-brand {
+  @apply p-6 border-b border-border-custom flex items-center gap-3;
+}
+.sidebar-brand .brand-icon {
+  @apply w-10 h-10 bg-gradient-to-br from-[#6366f1] to-[#8b5cf6] rounded-[10px] flex items-center justify-center text-[1.1rem];
+  box-shadow: 0 0 20px var(--color-accent-glow);
+}
+.sidebar-brand .brand-text {
+  @apply leading-[1.2];
+}
+.sidebar-brand .brand-name {
+  @apply text-[0.95rem] font-bold text-text-primary;
+}
+.sidebar-brand .brand-sub {
+  @apply text-[0.7rem] text-text-muted;
+}
+.sidebar-nav {
+  @apply flex-1 overflow-y-auto py-4;
+}
+.nav-section {
+  @apply px-5 py-1 mb-1;
+}
+.nav-section-label {
+  @apply text-[0.65rem] font-semibold uppercase tracking-wider text-text-muted mb-2;
+}
+.nav-link {
+  @apply flex items-center gap-3 px-4 py-2.5 rounded-lg text-text-muted no-underline text-[0.85rem] font-medium transition-all duration-200 hover:bg-bg-hover hover:text-text-primary;
+}
+.nav-link.active {
+  @apply text-accent-light bg-accent/10 hover:text-accent-light hover:bg-accent/10;
+}
+.nav-link i {
+  @apply text-[1rem] w-5 text-center;
+}
+.sidebar-footer {
+  @apply p-4 px-5 border-t border-border-custom;
+}
+.user-card {
+  @apply flex items-center gap-3 p-2.5 rounded-lg bg-bg-card;
+}
+.user-avatar {
+  @apply w-9 h-9 rounded-full bg-gradient-to-br from-[#6366f1] to-[#8b5cf6] flex items-center justify-center font-bold text-[0.85rem];
+}
+.user-info .user-name {
+  @apply text-[0.8rem] font-semibold;
+}
+.user-info .user-role {
+  @apply text-[0.7rem] text-text-muted;
+}
+
+/* Main Layout Components */
+.main-wrapper {
+  @apply ml-sidebar-w flex-1 flex flex-col min-h-screen;
+}
+.topbar {
+  @apply h-16 bg-bg-secondary border-b border-border-custom flex items-center justify-between px-8 sticky top-0 z-50;
+}
+.topbar-title {
+  @apply text-[1.1rem] font-bold;
+}
+.topbar-actions {
+  @apply flex items-center gap-4;
+}
+.btn-logout {
+  @apply flex items-center gap-2 px-4 py-2 rounded-lg bg-red-500/10 text-red-500 border border-red-500/20 text-[0.8rem] font-semibold no-underline cursor-pointer transition-all duration-200 hover:bg-red-500/20;
+}
+.page-content {
+  @apply p-8 flex-1;
+}
+
+/* Card Components */
+.card {
+  @apply bg-bg-card border border-border-custom rounded-xl overflow-hidden;
+}
+.card-header {
+  @apply px-6 py-5 border-b border-border-custom flex items-center justify-between;
+}
+.card-title {
+  @apply text-[1rem] font-bold;
+}
+.card-body {
+  @apply p-6;
+}
+
+/* Stat Grid Components */
+.stat-grid {
+  @apply grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-5 mb-8;
+}
+.stat-card {
+  @apply bg-bg-card border border-border-custom rounded-xl p-6 flex items-center gap-4 transition-all duration-200 hover:-translate-y-[3px] hover:shadow-[0_8px_32px_rgba(0,0,0,0.3)];
+}
+.stat-icon {
+  @apply w-[54px] h-[54px] rounded-xl flex items-center justify-center text-[1.4rem];
+}
+.stat-icon.indigo {
+  @apply bg-accent/15 text-[#818cf8];
+}
+.stat-icon.green {
+  @apply bg-success-custom/15 text-[#34d399];
+}
+.stat-icon.yellow {
+  @apply bg-warning-custom/15 text-[#fbbf24];
+}
+.stat-icon.blue {
+  @apply bg-blue-500/15 text-[#60a5fa];
+}
+.stat-icon.purple {
+  @apply bg-purple-500/15 text-[#a78bfa];
+}
+.stat-value {
+  @apply text-[1.8rem] font-extrabold;
+}
+.stat-label {
+  @apply text-[0.8rem] text-text-muted;
+}
+
+/* Buttons */
+.btn {
+  @apply inline-flex items-center gap-2 px-[1.1rem] py-[0.55rem] rounded-lg border-none text-[0.85rem] font-semibold cursor-pointer no-underline transition-all duration-200;
+}
+.btn-primary {
+  @apply bg-gradient-to-br from-[#6366f1] to-[#8b5cf6] text-white hover:opacity-90 hover:-translate-y-[1px];
+  box-shadow: 0 2px 12px var(--color-accent-glow);
+}
+.btn-secondary {
+  @apply bg-bg-hover text-text-primary border border-border-custom hover:bg-[#253049];
+}
+.btn-danger {
+  @apply bg-red-500/12 text-red-500 border border-red-500/20 hover:bg-red-500/22;
+}
+.btn-success {
+  @apply bg-success-custom/12 text-success-custom border border-success-custom/20 hover:bg-success-custom/22;
+}
+.btn-warning {
+  @apply bg-warning-custom/12 text-warning-custom border border-warning-custom/20 hover:bg-warning-custom/22;
+}
+.btn-info {
+  @apply bg-accent/12 text-accent-light border border-accent/20 hover:bg-accent/22;
+}
+.btn-sm {
+  @apply px-3 py-1.5 text-[0.78rem];
+}
+
+/* Tables */
+.table-wrap {
+  @apply overflow-x-auto;
+}
+table {
+  @apply w-full border-collapse;
+}
+thead th {
+  @apply px-4 py-3 text-left text-[0.75rem] font-semibold uppercase tracking-wider text-text-muted border-b border-border-custom;
+}
+tbody tr {
+  @apply border-b border-border-custom transition-colors duration-150 hover:bg-bg-hover last:border-b-0;
+}
+tbody td {
+  @apply px-4 py-3.5 text-[0.875rem];
+}
+
+/* Badges */
+.badge {
+  @apply inline-flex items-center px-2.5 py-1 rounded-full text-[0.72rem] font-semibold;
+}
+.badge-indigo {
+  @apply bg-accent/15 text-accent-light;
+}
+.badge-green {
+  @apply bg-success-custom/15 text-[#34d399];
+}
+.badge-yellow {
+  @apply bg-warning-custom/15 text-[#fbbf24];
+}
+.badge-red {
+  @apply bg-red-500/15 text-red-400;
+}
+.badge-blue {
+  @apply bg-blue-500/15 text-blue-400;
+}
+.badge-purple {
+  @apply bg-purple-500/15 text-purple-400;
+}
+
+/* Forms */
+.form-group {
+  @apply mb-5;
+}
+label {
+  @apply block text-[0.82rem] font-semibold mb-1.5 text-text-muted;
+}
+.form-control {
+  @apply w-full px-3.5 py-2.5 bg-bg-primary border border-border-custom rounded-lg text-text-primary text-[0.875rem] transition-colors duration-200 outline-none focus:border-accent focus:ring-4 focus:ring-accent/25;
+}
+.form-control.is-invalid {
+  @apply border-danger-custom;
+}
+.invalid-feedback {
+  @apply text-red-400 text-[0.78rem] mt-1;
+}
+
+/* Alerts */
+.alert {
+  @apply px-4.5 py-3.5 rounded-lg mb-5 text-[0.875rem] flex items-center gap-3;
+}
+.alert-success {
+  @apply bg-success-custom/10 text-[#34d399] border border-success-custom/20;
+}
+.alert-danger {
+  @apply bg-red-500/10 text-red-400 border border-red-500/20;
+}
+.alert-warning {
+  @apply bg-warning-custom/10 text-[#fbbf24] border border-warning-custom/20;
+}
+
+/* Search Bar */
+.search-bar {
+  @apply flex gap-3 flex-wrap items-center;
+}
+.search-input-wrap {
+  @apply relative;
+}
+.search-input-wrap i {
+  @apply absolute left-3 top-1/2 -translate-y-1/2 text-text-muted pointer-events-none;
+}
+.search-input {
+  @apply pl-9 pr-3.5 py-2.5 bg-bg-primary border border-border-custom rounded-lg text-text-primary text-[0.875rem] outline-none min-w-[240px] focus:border-accent;
+}
+
+/* Pagination */
+.pagination-wrap {
+  @apply px-6 py-4 border-t border-border-custom;
+}
+.pagination-wrap nav {
+  @apply flex justify-center;
+}
+.pagination {
+  @apply flex gap-1 list-none flex-wrap justify-center;
+}
+.pagination li a, .pagination li span {
+  @apply px-3 py-1.5 rounded bg-bg-primary border border-border-custom text-text-muted text-[0.8rem] no-underline transition-all duration-150 hover:bg-bg-hover hover:text-text-primary;
+}
+.pagination li.active span {
+  @apply bg-accent text-white border-accent;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  @apply flex items-center gap-2 text-[0.8rem] text-text-muted mb-6;
+}
+.breadcrumb a {
+  @apply text-text-muted no-underline hover:text-accent-light;
+}
+.breadcrumb .sep {
+  @apply text-border-custom;
+}
+
+/* Action Group */
+.action-group {
+  @apply flex gap-2;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #2d3748;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #4a5568;
+}

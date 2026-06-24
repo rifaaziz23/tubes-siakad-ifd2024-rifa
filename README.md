@@ -48,5 +48,3 @@ Tangkapan layar antarmuka dari setiap halaman aplikasi disimpan secara terstrukt
 ```
 /screenshots
 ```
-
-_(Catatan: Anda dapat menaruh gambar hasil demonstrasi fitur atau UI web di dalam folder tersebut secara mandiri.)_

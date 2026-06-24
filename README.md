@@ -1,6 +1,6 @@
 # SIAKAD — Sistem Informasi Akademik
 
-**Link Hosting : https://github.com/rifaaziz23/tubes-siakad-ifd2024-rifa**
+**Link Hosting : http://ivaraz.gt.tc/**
 
 SIAKAD (Sistem Informasi Akademik) adalah platform web berbasis Laravel yang dirancang untuk mendigitalisasi dan menyederhanakan manajemen administrasi akademik di perguruan tinggi. Aplikasi ini memfasilitasi interaksi yang efisien dan real-time antara mahasiswa, dosen, dan administrator (admin) dalam mengelola katalog mata kuliah, penjadwalan kelas, serta pengisian Kartu Rencana Studi (KRS).
 

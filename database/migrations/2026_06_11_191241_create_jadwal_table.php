@@ -17,7 +17,8 @@ return new class extends Migration
             $table->char('nidn', 10);
             $table->char('kelas', 1);
             $table->string('hari', 10);
-            $table->timestamp('jam');
+            $table->time('jam_mulai');
+            $table->time('jam_selesai');
             $table->foreign('kode_matakuliah')->references('kode_matakuliah')->on('matakuliah')->onDelete('cascade');
             $table->foreign('nidn')->references('nidn')->on('dosen')->onDelete('cascade');
             $table->timestamps();

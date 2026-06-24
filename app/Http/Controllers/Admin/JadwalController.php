@@ -54,7 +54,8 @@ class JadwalController extends Controller
             'nidn'            => ['required', 'string', 'exists:dosen,nidn'],
             'kelas'           => ['required', 'string', 'size:1'],
             'hari'            => ['required', 'string', 'in:Senin,Selasa,Rabu,Kamis,Jumat,Sabtu'],
-            'jam'             => ['required', 'date_format:H:i'],
+            'jam_mulai'       => ['required', 'date_format:H:i'],
+            'jam_selesai'     => ['required', 'date_format:H:i', 'after:jam_mulai'],
         ], [
             'kode_matakuliah.required' => 'Mata kuliah wajib dipilih.',
             'kode_matakuliah.exists'   => 'Mata kuliah tidak terdaftar.',
@@ -64,8 +65,11 @@ class JadwalController extends Controller
             'kelas.size'               => 'Kelas harus berukuran 1 karakter (misal: A/B/C).',
             'hari.required'            => 'Hari wajib dipilih.',
             'hari.in'                  => 'Hari pilihan tidak valid.',
-            'jam.required'             => 'Jam wajib diisi.',
-            'jam.date_format'          => 'Format jam mulai tidak valid (contoh format: HH:MM).',
+            'jam_mulai.required'       => 'Jam mulai wajib diisi.',
+            'jam_mulai.date_format'    => 'Format jam mulai tidak valid (contoh format: HH:MM).',
+            'jam_selesai.required'     => 'Jam selesai wajib diisi.',
+            'jam_selesai.date_format'  => 'Format jam selesai tidak valid (contoh format: HH:MM).',
+            'jam_selesai.after'        => 'Jam selesai harus setelah jam mulai.',
         ]);
 
         Jadwal::create([
@@ -73,7 +77,8 @@ class JadwalController extends Controller
             'nidn'            => $request->nidn,
             'kelas'           => strtoupper($request->kelas),
             'hari'            => $request->hari,
-            'jam'             => '2024-01-01 ' . $request->jam . ':00',
+            'jam_mulai'       => $request->jam_mulai,
+            'jam_selesai'     => $request->jam_selesai,
         ]);
 
         return redirect()->route('admin.jadwal.index')
@@ -102,7 +107,8 @@ class JadwalController extends Controller
             'nidn'            => ['required', 'string', 'exists:dosen,nidn'],
             'kelas'           => ['required', 'string', 'size:1'],
             'hari'            => ['required', 'string', 'in:Senin,Selasa,Rabu,Kamis,Jumat,Sabtu'],
-            'jam'             => ['required', 'date_format:H:i'],
+            'jam_mulai'       => ['required', 'date_format:H:i'],
+            'jam_selesai'     => ['required', 'date_format:H:i', 'after:jam_mulai'],
         ], [
             'kode_matakuliah.required' => 'Mata kuliah wajib dipilih.',
             'kode_matakuliah.exists'   => 'Mata kuliah tidak terdaftar.',
@@ -112,8 +118,11 @@ class JadwalController extends Controller
             'kelas.size'               => 'Kelas harus berukuran 1 karakter (misal: A/B/C).',
             'hari.required'            => 'Hari wajib dipilih.',
             'hari.in'                  => 'Hari pilihan tidak valid.',
-            'jam.required'             => 'Jam wajib diisi.',
-            'jam.date_format'          => 'Format jam mulai tidak valid (contoh format: HH:MM).',
+            'jam_mulai.required'       => 'Jam mulai wajib diisi.',
+            'jam_mulai.date_format'    => 'Format jam mulai tidak valid (contoh format: HH:MM).',
+            'jam_selesai.required'     => 'Jam selesai wajib diisi.',
+            'jam_selesai.date_format'  => 'Format jam selesai tidak valid (contoh format: HH:MM).',
+            'jam_selesai.after'        => 'Jam selesai harus setelah jam mulai.',
         ]);
 
         $jadwal->update([
@@ -121,7 +130,8 @@ class JadwalController extends Controller
             'nidn'            => $request->nidn,
             'kelas'           => strtoupper($request->kelas),
             'hari'            => $request->hari,
-            'jam'             => '2024-01-01 ' . $request->jam . ':00',
+            'jam_mulai'       => $request->jam_mulai,
+            'jam_selesai'     => $request->jam_selesai,
         ]);
 
         return redirect()->route('admin.jadwal.index')

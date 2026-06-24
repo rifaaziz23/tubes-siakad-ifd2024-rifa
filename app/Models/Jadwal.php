@@ -18,11 +18,8 @@ class Jadwal extends Model
         'nidn',
         'kelas',
         'hari',
-        'jam',
-    ];
-
-    protected $casts = [
-        'jam' => 'datetime',
+        'jam_mulai',
+        'jam_selesai',
     ];
 
     /**

@@ -2,6 +2,16 @@
 
 **Link Hosting : http://ivaraz.gt.tc/**
 
+## Akun Demo
+
+    Admin/Dosen
+    Email : lalan@unsur.ac.id
+    Password : 123
+
+    Mahasiswa
+    Email : rifa@unsur.ac.id
+    Password : 123
+
 SIAKAD (Sistem Informasi Akademik) adalah platform web berbasis Laravel yang dirancang untuk mendigitalisasi dan menyederhanakan manajemen administrasi akademik di perguruan tinggi. Aplikasi ini memfasilitasi interaksi yang efisien dan real-time antara mahasiswa, dosen, dan administrator (admin) dalam mengelola katalog mata kuliah, penjadwalan kelas, serta pengisian Kartu Rencana Studi (KRS).
 
 Seluruh antarmuka aplikasi ini dibangun menggunakan **Tailwind CSS murni** secara utility-first untuk menyajikan tampilan yang responsif, modern, minimalis, dan berkinerja tinggi.
